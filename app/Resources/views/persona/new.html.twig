@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12 text-center">
+                <h1>Agregar Personas</h1>
+            </div>
+            <div class="col-8">
+                {{ form_start(form) }}
+                    {{ form_widget(form) }}
+                    <input type="submit" class="btn btn-primary" value="Registrar" />
+                {{ form_end(form) }}
+            </div>    
+        </div>
+    </div>
+{% endblock %}
+
+{% block newPerson %}
+    <a href="{{ path('persona_index') }}" class="btn btn-mutted" role="button">Volver a la lista</a>
+{% endblock %}

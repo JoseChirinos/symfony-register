@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        {% block stylesheets %}
+            <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/bootstrap.min.css') }}" />
+        {% endblock %}
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                  <h1 class="display-4">Registro de Personas</h1>
+                  <p class="lead">Por favor ingrese información válida</p>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="row justify-content-center">
+                <div class="col-12">
+                    <p class="lead">
+                        {% block newPerson %}
+
+                        {% endblock %}
+                      </p>
+                </div>
+            </div>
+        </div>
+        {% block body %}{% endblock %}
+        {% block javascripts %}
+            <script type="text/javascript" src="{{ asset('assets/js/jquery-3.2.1.slim.min.js') }}"></script>
+            <script type="text/javascript" src="{{ asset('assets/js/popper.min.js') }}"></script>
+        {% endblock %}
+    </body>
+</html>

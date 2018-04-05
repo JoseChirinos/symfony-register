@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12 text-center">
+                <h1>Datos de {{ persona.nombre }}</h1>
+            </div>
+            <div class="col-8">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>Id</th>
+                            <td>{{ persona.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Nombre</th>
+                            <td>{{ persona.nombre }}</td>
+                        </tr>
+                        <tr>
+                            <th>Apellido</th>
+                            <td>{{ persona.apellido }}</td>
+                        </tr>
+                        <tr>
+                            <th>Ci</th>
+                            <td>{{ persona.ci }}</td>
+                        </tr>
+                        <tr>
+                            <th>Status</th>
+                            <td>{% if persona.status %}Yes{% else %}No{% endif %}</td>
+                        </tr>
+
+                        <tr>
+                            <th>
+                                <a href="{{ path('persona_edit', { 'id': persona.id }) }}" class="btn btn-success">Editar Datos</a>
+                            </th>
+                            <td>
+                                {{ form_start(delete_form) }}
+                                    <input type="submit" value="Eliminar a esta persona" class="btn btn-light text text-danger">
+                                {{ form_end(delete_form) }}
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>      
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block newPerson %}
+    <a href="{{ path('persona_index') }}" class="btn btn-mutted" role="button">Volver a la lista</a>
+{% endblock %}

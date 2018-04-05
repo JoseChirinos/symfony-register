@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12 text-center">
+                <h1>Lista de Personas</h1>
+            </div>
+            <div class="col-8">
+                <table class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">#id</th>
+                      <th scope="col">Nombre</th>
+                      <th scope="col">Apellido</th>
+                      <th scope="col">Carnet de Identidad</th>
+                      <th scope="col">Habilitado</th>
+                      <th scope="col">Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+
+                    {% for persona in personas %}
+                        <tr>
+                            <th scope="row">
+                                <a href="{{ path('persona_show', { 'id': persona.id }) }}">{{ persona.id }}</a>
+                            </th>
+                            <td>{{ persona.nombre }}</td>
+                            <td>{{ persona.apellido }}</td>
+                            <td>{{ persona.ci }}</td>
+                            <td>{% if persona.status %}SI{% else %}NO{% endif %}</td>
+                            <td>
+                                <a href="{{ path('persona_show', { 'id': persona.id }) }}" class="btn btn-success">ver</a>
+                                <a href="{{ path('persona_edit', { 'id': persona.id }) }}" class="btn btn-warning">editar</a>                    
+                            </td>
+                        </tr>
+                    {% endfor %}
+
+                  </tbody>
+                </table>
+            </div>
+        </div>
+    </div>    
+{% endblock %}
+
+    
+{% block  newPerson %}
+        <a href="{{ path('persona_new') }}" class="btn btn-primary" role="button">Create a new persona</a>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-12 text-center">
+                <h1>Editar Datos</h1>
+            </div>
+            <div class="col-8">
+                {{ form_start(edit_form) }}
+                    {{ form_widget(edit_form) }}
+                    <input type="submit" value="Guardar Cambios" class="btn btn-success" />
+                {{ form_end(edit_form) }}      
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-8">
+                <p class="text text-danger">Zona de peligro</p>
+                <hr class="my-4">
+                {{ form_start(delete_form) }}
+                    <input type="submit" value="Eliminar a esta persona" class="btn btn-danger" />
+                {{ form_end(delete_form) }}
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block newPerson %}
+    <a href="{{ path('persona_index') }}" class="btn btn-mutted" role="button">Volver a la lista</a>
+{% endblock %}
