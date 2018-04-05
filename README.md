@@ -9,7 +9,7 @@ A Symfony project created on April 4, 2018, 5:25 am.
 composer install
 ```
 
-2. Crear una base de datos llamada register
+2. Crear una base de datos en MYSQL llamada register
 ```sql
 CREATE DATABASE register 
 ```
